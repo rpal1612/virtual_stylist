@@ -1,14 +1,18 @@
-// src/App.js
-import React from "react";               // 1) React for components/JSX
-import "./App.css";                      // 2) global theme variables + resets
-import Hero from "./components/Hero";    // 3) bring in the Hero section
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Hero from "./components/Hero";
+import Quiz from "./components/Quiz/Quiz";
 
-function App() {                         // 4) root component
-  return (                               // 5) return the UI tree
-    <main>                               {/* 6) semantic main container */}
-      <Hero />                           {/* 7) render the hero section */}
-    </main>
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/quiz" element={<Quiz />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App;                      // 8) export for ReactDOM to render
+export default App;
